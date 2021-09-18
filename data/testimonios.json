@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "name":"Goku",
+        "visible":true
+    },
+    {
+        "id":2,
+        "name":"Bulma",
+        "deleted":true,
+        "visible":true
+    },
+    {
+        "id":3,
+        "deleted":true
+    }
+]
