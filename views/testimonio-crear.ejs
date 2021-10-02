@@ -5,18 +5,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="favicon/x-icon"/>
     <title>Nuevo testimonio</title>
 </head>
 
 <body>
-    <h1>Nuevo testimonio</h1>
-    <form action="/testimonio/new" method="POST">
-        <label>Nombre: <input name="name" type="text" /></label>
-        <label>Linkedin: <input name="linkedin" type="text" /></label>
-        <textarea name="testimonio" id="1" cols="30" rows="10"></textarea>
-
-        <button>Crear Personaje</button>
-    </form>
+    <header>
+        <h1 class="visually-hidden">Genshin Impact</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                <img src="img/logo.png" alt="Logo" width="200" height="140" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <div class="collapse navbar-collapse " id="navbar">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link px-3" aria-current="page" href="/#welcome">HOME</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link px-3" href="/#character">CHARACTER</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link px-3" href="/#testimonios">TESTIMONIES</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link px-3" href="agregar-testimonio">ADD TESTIMONIES</a>
+                      </li>
+                    </ul>
+                  </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+        <section id="form">
+            <h1>New Testimony</h1>
+            <form action="/agregar-testimonio" method="POST">
+                <label class="form-label">Name: <input class="form-control" name="name" type="text" required/></label>
+                <label class="form-label">Hoyolab Profile: <input class="form-control" name="perfil" type="text" required/></label>
+                <textarea class="form-control" name="testimonio" id="1" cols="30" rows="10" required></textarea>
+    
+                <button type="submit" class="btn btn-primary">Crear Personaje</button>
+            </form>
+        </section>
+        
+        <footer>
+            <div>
+                <div id="mihoyo">
+                </div>
+                <div id="copyright">
+                    <p>Copyright © 2020 miHoYo All Rights Reserved</p>
+                    <p>"PlayStation Family Mark," "PS5 logo" and "PS4 logo" are registered trademarks or trademarks of Sony Interactive Entertainment Inc.</p>
+                    <p>Epic, Epic Games, Epic Games Store, the Epic Games Store logo, and Epic Online Services are trademarks and/or registered trademarks of Epic Games. All other trademarks are the property of their respective owners.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+    
+    <script src="/bootstrap/js/jquery-3.5.1.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 
 </html>

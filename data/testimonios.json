@@ -1,17 +1,51 @@
 [
     {
-        "id":1,
-        "name":"Goku",
-        "visible":true
+        "id": 1,
+        "name": "Ana",
+        "perfil": "https://www.hoyolab.com/accountCenter/postList?id=134421462",
+        "testimonio": "I love this game, I really do. However, once you finish all the content (which took me 2 months and a half). There are a few things to do now and some characters need improvements. Daily resin is too low. Besides farming, daily quests and the abyss there really is nothing to do. ",
+        "visible": true
     },
     {
-        "id":2,
-        "name":"Bulma",
-        "deleted":true,
-        "visible":true
+        "id": 2,
+        "name": "Pedro",
+        "perfil": "https://www.hoyolab.com/accountCenter/postList?id=143275358",
+        "testimonio": "One of the most beautiful gaming experiences I've had so far. For a free game (where nothing is locked by money except certain characters that aren't needed to play/win), it is honestly so amazing and so immersive. ",
+        "visible": true
     },
     {
-        "id":3,
-        "deleted":true
+        "id": 3,
+        "name": "Lucas",
+        "perfil": "https://www.hoyolab.com/accountCenter/postList?id=138260134",
+        "testimonio": " still give the game 4-star rating as its a very solid game, where youll sink hundreds if not thousands of hours into and still want more... but thats the problem. We want more, we want to play the game. But all the content there has been never adressed the issue. We need something to do.",
+        "visible": true
+    },
+    {
+        "name": "patricio",
+        "perfil": "https://www.hoyolab.com/accountCenter/postList?id=15830764",
+        "testimonio": "Testimony",
+        "visible": false,
+        "id": 4
+    },
+    {
+        "name": "patricio",
+        "perfil": "https://www.hoyolab.com/accountCenter/postList?id=15830764",
+        "testimonio": "asd",
+        "visible": false,
+        "id": 5
+    },
+    {
+        "name": "patricio",
+        "perfil": "https://www.hoyolab.com/accountCenter/postList?id=15830764",
+        "testimonio": "assad",
+        "visible": false,
+        "id": 6
+    },
+    {
+        "name": "patricio",
+        "perfil": "https://www.hoyolab.com/accountCenter/postList?id=15830764",
+        "testimonio": "asdsad",
+        "visible": false,
+        "id": 7
     }
 ]

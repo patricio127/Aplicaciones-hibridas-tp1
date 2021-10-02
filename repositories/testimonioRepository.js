@@ -34,7 +34,7 @@ export async function create(entity){
 
             testimonios.push(entity);
 
-            return promises.writeFile('./data/testimonios.json', JSON.stringify(testimonios)) 
+            return promises.writeFile('./data/testimonios.json', JSON.stringify(testimonios, null, 4)) 
         })
         .then(function () {
             return entity
@@ -44,28 +44,9 @@ export async function create(entity){
         })
 }
 
-export async function setVisible(id, visible) {
-    return promises.readFile('./data/testimonios.json')
-        .then(function (data) {
-            const testimonios = JSON.parse(data.toString())
-            const testimonio = testimonios.find(function (e) {
-                return e.id == id
-            })
-            if (testimonio) {
-                testimonio.visible = visible;
-                return promises.writeFile('./data/testimonios.json', JSON.stringify(testimonios)) 
-            } else {
-                return false
-            }
-        })
-        .catch(function (err) {
-            return err            
-        })
-}
 
 export default {
     getAll,
     getVisibleHome,
-    setVisible,
     create,
 }
