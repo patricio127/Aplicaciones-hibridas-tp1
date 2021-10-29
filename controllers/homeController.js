@@ -5,8 +5,10 @@ function home(req, res) {
     repository.getVisibleHome()
         .then(function (testimonios) {
             res.render('home', {
+                
                 testimonios: testimonios
             })
+            console.log(testimonios);
         })
         .catch(function (err) {
             res.status(500).json({ err: 500, msg: err.message })
