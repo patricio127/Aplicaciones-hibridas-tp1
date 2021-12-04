@@ -1,0 +1,105 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#events a {
+  text-decoration: none;
+}
+#login, #edit, #new-event, #register{
+  width: 50vw;
+  margin: 50px auto;
+}
+
+#admin > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.action.d-flex {
+  flex-wrap: wrap;
+}
+#admin-descripcion {
+
+      width: 230px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+}
+footer {
+  height: auto;
+  background-color: black;
+}
+
+
+footer div div {
+  margin: 50px;
+}
+#mihoyo{
+  display: flex;
+  background-image: url(./img/mihoyo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  width: 50vw;
+  height: 10vh;
+}
+
+#copyright {
+  color: cornsilk;
+}
+@media (max-width: 720px) {
+  #welcome h2 {
+      font-size: 1.5em;
+  }
+  #character h2 {
+      font-size: 2em;
+      margin-top: 0vh;
+      margin-right: 20vw;
+  }
+  #guide h2 {
+      font-size: 2em;
+      margin-top: 0px;
+      margin-right: 80vw;
+  }
+  footer > div.d-flex {
+      flex-direction: column;
+  }
+  #mihoyo{
+      background-position: auto;
+  }
+}

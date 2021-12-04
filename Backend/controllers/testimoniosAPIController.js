@@ -1,5 +1,5 @@
-import { promises } from 'fs'
-import repository from '../repositories/testimonioRepository.js'
+
+import repository from '../model/testimonioRepository.js'
 
 function getAll (req, res) {
     repository.getAll()
