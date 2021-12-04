@@ -1,7 +1,7 @@
 import express from 'express'
-import testimonioAPIRouter from './routers/testimoniosAPIRouter.js'
+import eventsRouter from './routers/events.router.js'
 import router from './routers/router.js'
-import authRouter from './routers/auth.route.js'
+import authRouter from './routers/auth.router.js'
 import cors from 'cors'
 
 
@@ -18,10 +18,9 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(express.json())
 
-app.use('/api/testimonios', testimonioAPIRouter) // API REST
-
 app.use('/', router) // Pagina Web
 app.use('/usuarios', authRouter)
+app.use('/eventos', eventsRouter)
 
 app.listen(9000, function () {
     console.log("Server ON!")

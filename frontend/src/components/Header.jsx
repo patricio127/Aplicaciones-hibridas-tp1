@@ -32,9 +32,7 @@ function Header(props){
                       ) : ''}
                       {props.isAuthenticated? (
                       <li className="nav-item">
-                        <form action="{{route('auth.logout')}}" method="post">
-                          <button className="btn nav-link px-3" type="submit">CERRAR SESION</button>
-                        </form>
+                        <button className="btn nav-link px-3" type="submit" onClick={()=>props.logout()}>CERRAR SESION</button>
                       </li>
                       ) : (
                       <li className="nav-item">

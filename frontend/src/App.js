@@ -20,6 +20,11 @@ function App () {
     setAuthenticated(true)
     navigate('/', {replace: true})
   }
+  const handleLogout = ()=>{
+    localStorage.clear();
+    setAuthenticated(false)
+    navigate('/', {replace: true})
+  }
   useEffect(()=>{
     if(localStorage.getItem('token')){
       setAuthenticated(true)
@@ -29,7 +34,7 @@ function App () {
   }, [isAuthenticated])
   return (
     <div className="App">
-      <Header isAuthenticated={isAuthenticated}/>
+      <Header isAuthenticated={isAuthenticated} logout={()=> handleLogout()}/>
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/eventos" element={isAuthenticated? <Events />:<Navigate to="/login"/>}/>
