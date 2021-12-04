@@ -1,8 +1,8 @@
 
-import { useState } from 'react';
+import { useEffect, useState} from 'react';
 import './App.css';
 import Home from './pages/Home'
-import { Routes, Route, Navigate} from 'react-router-dom'
+import { Routes, Route, Navigate, useNavigate} from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Events from './pages/Events';
@@ -11,8 +11,22 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Register from './pages/Register'
 
+
+
 function App () {
-  const [isAuthenticated, setAuthenticated] = useState(false) 
+  const [isAuthenticated, setAuthenticated] = useState(false);
+  let navigate = useNavigate();
+  const handleLogin = ()=>{
+    setAuthenticated(true)
+    navigate('/', {replace: true})
+  }
+  useEffect(()=>{
+    if(localStorage.getItem('token')){
+      setAuthenticated(true)
+    } else {
+      setAuthenticated(false)
+    }
+  }, [isAuthenticated])
   return (
     <div className="App">
       <Header isAuthenticated={isAuthenticated}/>
@@ -21,7 +35,7 @@ function App () {
         <Route path="/eventos" element={isAuthenticated? <Events />:<Navigate to="/login"/>}/>
         <Route path="/admin" element={isAuthenticated? <Admin />:<Navigate to="/login"/>}/>
         <Route path="/perfil" element={isAuthenticated? <Profile /> :<Navigate to="/login"/> }/>
-        <Route path="/login" element={<Login setLogin={(user)=> setAuthenticated(true)}/>}/>
+        <Route path="/login" element={isAuthenticated?<Navigate to="/perfil"/>: <Login setLogin={(token)=> handleLogin(token)}/> }/>
         <Route path="/registrarse" element={<Register />}/>
         <Route path="*" element={<Navigate to="/"/>} />
       </Routes>
