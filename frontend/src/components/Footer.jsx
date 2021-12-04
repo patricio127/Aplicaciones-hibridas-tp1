@@ -1,7 +1,7 @@
 function Footer(){
     return(
     <footer>
-        <div class="d-flex">
+        <div className="d-flex">
             <div id="mihoyo">
             </div>
             <div id="copyright">

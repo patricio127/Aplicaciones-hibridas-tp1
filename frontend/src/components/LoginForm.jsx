@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function Login(props){
+function LoginForm(props){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -16,8 +16,12 @@ function Login(props){
         .then(function(response){
             return response.json()
         })
+        .then(function (data) {
+            localStorage.setItem('token', data.token)
+            props.setLogin(data.user)
+        })
         .catch(function(err){
-            alert(JSON.stringify(err))
+            console.error(err)
         })
     }
     return(
@@ -30,4 +34,4 @@ function Login(props){
         </div>
     )
 }
-export default Login
+export default LoginForm
