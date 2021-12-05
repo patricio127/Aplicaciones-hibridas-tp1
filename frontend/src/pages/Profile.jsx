@@ -1,6 +1,9 @@
+import LoginForm from "../components/LoginForm"
+import './Login.css'
+
 function Profile(){
     return(
-        <p>Profile Page</p>
+        <Profile/>
     )
 }
 export default Profile

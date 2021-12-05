@@ -1,13 +1,13 @@
 import {useState} from "react";
 import {Link} from 'react-router-dom'
 
-function LoginForm(props){
+function RegisterForm(props){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     function onSubmit(e){
         e.preventDefault()
-        fetch('http://localhost:9000/usuarios/login', {
+        fetch('http://localhost:9000/usuarios/register', {
             method: "POST",
             headers:{
                 'content-type': 'application/json'
@@ -18,8 +18,7 @@ function LoginForm(props){
             return response.json()
         })
         .then(function (data) {
-            localStorage.setItem('token', data.token)
-            props.setLogin(data.user)
+            props.setRegister(data.token)
         })
         .catch(function(err){
             console.error(err)
@@ -27,7 +26,7 @@ function LoginForm(props){
     }
     return(
         <div className="container">
-            <h1>Iniciar sesión</h1>
+            <h1>Registrarse</h1>
             <form onSubmit={(e)=>onSubmit(e)}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email</label>
@@ -38,10 +37,10 @@ function LoginForm(props){
                     <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" name="password" className="form-control" id="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
                 </div>
-                <button className="btn btn-primary w-100">Ingresar</button>
+                <button className="btn btn-primary w-100">Registrarse</button>
             </form>
-            <Link to="/registrarse">No tienes cuenta? Registrarse</Link>
+            <Link to="/login">Ya tienes cuenta?</Link>
         </div>
     )
 }
-export default LoginForm
+export default RegisterForm

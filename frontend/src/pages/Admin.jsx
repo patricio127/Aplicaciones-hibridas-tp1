@@ -1,6 +1,8 @@
+import AdminTable from "../components/AdminTable"
+
 function Admin(){
     return(
-        <p>Admin Page</p>
+        <AdminTable/>
     )
 }
 export default Admin

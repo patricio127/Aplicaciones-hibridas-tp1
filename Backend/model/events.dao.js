@@ -1,4 +1,5 @@
 import { conection } from "./conection.js"
+import { ObjectId } from 'mongodb'
 export async function getAll() {
     try{
         return await conection(async function(db){
@@ -79,6 +80,7 @@ export async function update(id, changes){
 
 export default {
     getAll,
+    get,
     create,
     remove,
     update,

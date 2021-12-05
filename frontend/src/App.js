@@ -25,6 +25,7 @@ function App () {
     setAuthenticated(false)
     navigate('/', {replace: true})
   }
+
   useEffect(()=>{
     if(localStorage.getItem('token')){
       setAuthenticated(true)
