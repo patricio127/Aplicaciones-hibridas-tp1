@@ -9,6 +9,7 @@ export function tokenValidator(req, res, next){
             req.usuario = datosUser
             next()
         } catch(err){
+            console.error(err)
             return res.status(400).json({error: 400, msg: "Token no valido."})
         }
     } else {

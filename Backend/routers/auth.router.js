@@ -9,6 +9,7 @@ const router = express.Router()
 router.post('/register', authcontroller.register)
 router.post('/login', authcontroller.login)
 router.get('/login',[tokenValidator], authcontroller.getLogin)
+router.patch('/',[tokenValidator], authcontroller.update)
 
 router.get('/',[tokenValidator], authcontroller.findAll)
 

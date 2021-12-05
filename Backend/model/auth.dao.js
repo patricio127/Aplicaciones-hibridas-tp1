@@ -1,5 +1,6 @@
 import { conection } from "./conection.js"
 import bcrypt from 'bcrypt'
+import { ObjectId } from 'mongodb'
 
 async function login(email, password){
     return await conection(async function(db){
@@ -41,14 +42,29 @@ async function register(usuario){
 }
 
 async function findAll(){
-    console.log("findall auth")
     return await conection(async function(db){
         return await db.collection('usuarios').find().toArray()
     })
 }
-
+async function update(id, changes){
+    try{
+        return await conection(async function(db){
+            const result = await db.collection('usuarios').updateOne({_id: ObjectId(id)}, {$set: changes});
+            if(result.matchedCount > 0) {
+                return true
+            } else {
+                throw {error: 404, msg: "El usuario no se encuentra."}
+            }
+             
+        })
+    } catch(err){
+        console.error(err)
+        throw {error: 500, msg: "No se pudo editar el usuario."}
+    }
+}
 export default {
     login,
     register,
-    findAll
+    findAll,
+    update
 }

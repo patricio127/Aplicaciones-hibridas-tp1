@@ -1,9 +1,8 @@
-import LoginForm from "../components/LoginForm"
-import './Login.css'
+import ProfileForm from "../components/ProfileForm"
 
 function Profile(){
     return(
-        <Profile/>
+        <ProfileForm/>
     )
 }
 export default Profile
