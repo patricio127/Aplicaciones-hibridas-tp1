@@ -1,8 +1,11 @@
 import AdminTable from "../components/AdminTable"
+import { EventsProvider } from "../context/EventsContext"
 
 function Admin(){
     return(
-        <AdminTable/>
+        <EventsProvider>
+            <AdminTable/>
+        </EventsProvider>
     )
 }
 export default Admin
