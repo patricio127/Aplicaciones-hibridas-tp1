@@ -10,14 +10,15 @@ export function EventsProvider(props) {
     const remove = (event) => {
         setEvents(events.filter(p => p.id !== event.id));
     }
-    const add = (event) => {
-        setEvents(events.filter(p => p.id !== event.id));
+    const add = async (event) => {
+        const createdEvent = await eventsApi.create(event)
+        setEvents([...events, createdEvent])
     }
     useEffect(()=>{
         async function eventGetApi(){
             console.log('context')
-            const eventos = await eventsApi.getAll()
-            setEvents(eventos)
+            const results = await eventsApi.getAll()
+            setEvents(results)
         } 
         eventGetApi();
     },[])

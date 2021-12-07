@@ -6,6 +6,7 @@ function AdminTable(){
     const {events, remove, add} = useEvents();
     return(
         <section id="admin" className="container">
+            
             <div>
                 <h2 className="my-5">Listado de eventos</h2>
                 

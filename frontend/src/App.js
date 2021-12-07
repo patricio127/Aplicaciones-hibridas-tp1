@@ -14,7 +14,7 @@ import Register from './pages/Register'
 
 
 function App () {
-  const [isAuthenticated, setAuthenticated] = useState(false);
+  const [isAuthenticated, setAuthenticated] = useState(true);
   let navigate = useNavigate();
   const handleLogin = ()=>{
     setAuthenticated(true)
