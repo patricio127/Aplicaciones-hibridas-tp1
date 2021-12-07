@@ -1,6 +1,7 @@
 import {useState} from "react";
 import EventRow from "./EventRow";
 import { useEvents } from "../context/EventsContext";
+import { Link } from "react-router-dom";
 
 function AdminTable(){
     const {events, remove, add} = useEvents();
@@ -10,7 +11,7 @@ function AdminTable(){
             <div>
                 <h2 className="my-5">Listado de eventos</h2>
                 
-                <a className="btn btn-primary" href="">Agregar nuevo evento</a>
+                <Link className="btn btn-primary" to="/admin/crear-evento">Agregar nuevo evento</Link>
             </div>
             <div className="mb-2">
                 <form action="" method="get">

@@ -1,30 +1,15 @@
 import {useState} from "react";
 import {Link} from 'react-router-dom'
+import { useSession } from "../context/SessionContext";
 
 function LoginForm(props){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const {handleLogin} = useSession()
 
     function onSubmit(e){
         e.preventDefault()
-        fetch('http://localhost:9000/usuarios/login', {
-            method: "POST",
-            headers:{
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({email, password})
-        })
-        .then(function(response){
-            return response.json()
-        })
-        .then(function (data) {
-            localStorage.setItem('token', data.token)
-            localStorage.setItem('user', JSON.stringify(data.usuario))
-            props.setLogin(data.usuario)
-        })
-        .catch(function(err){
-            console.error(err)
-        })
+        handleLogin(email, password)
     }
     return(
         <div className="container">

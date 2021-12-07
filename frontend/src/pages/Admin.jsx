@@ -1,12 +1,16 @@
 import AdminTable from "../components/AdminTable"
+import AuthRoute from "../components/AuthRoute"
 import { EventsProvider } from "../context/EventsContext.jsx"
+import { Route, Routes, Navigate} from 'react-router-dom'
+import EventForm from "../components/EventForm"
 
 function Admin(){
     return(
         <EventsProvider>
-            {/* <Route path="/admin/add-event" element={isAuthenticated? <AdminTable />:<Navigate to="/login"/>}/>
-            <Route path="/admin/add-event" element={isAuthenticated? <AdminTable />:<Navigate to="/login"/>}/> */}
-            <AdminTable/>
+            <Routes>
+                <Route path="crear-evento" element={<AuthRoute><EventForm /></AuthRoute>}/>
+                <Route path="eventos" element={<AuthRoute><AdminTable /></AuthRoute>}/>
+            </Routes>
         </EventsProvider>
     )
 }

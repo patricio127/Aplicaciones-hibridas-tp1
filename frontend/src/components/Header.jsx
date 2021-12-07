@@ -1,6 +1,8 @@
 import {Link} from 'react-router-dom'
+import { useSession } from '../context/SessionContext';
 
 function Header(props){
+    const {isAuthenticated, handleLogout} = useSession()
     return(
         <header>
         <h1 className="visually-hidden">Genshin Impact</h1>
@@ -20,26 +22,26 @@ function Header(props){
                       <li className="nav-item">
                         <Link className="nav-link px-3" to="/eventos">EVENTOS</Link>
                       </li>
-                      {props.isAuthenticated? (
+                      {isAuthenticated? (
                       <li className="nav-item">
-                        <Link className="nav-link px-3" to="/admin">ADMINISTRAR</Link>
+                        <Link className="nav-link px-3" to="/admin/eventos">ADMINISTRAR</Link>
                       </li>
                       ):''}
-                      {props.isAuthenticated? (
+                      {isAuthenticated? (
                       <li className="nav-item">
                         <Link className="nav-link px-3" to="/perfil">PERFIL</Link>
                       </li>
                       ) : ''}
-                      {props.isAuthenticated? (
+                      {isAuthenticated? (
                       <li className="nav-item">
-                        <button className="btn nav-link px-3" type="submit" onClick={()=>props.logout()}>CERRAR SESION</button>
+                        <button className="btn nav-link px-3" type="submit" onClick={()=>handleLogout()}>CERRAR SESION</button>
                       </li>
                       ) : (
                       <li className="nav-item">
                         <Link className="nav-link px-3" to="/login">INICIAR SESION</Link>
                       </li>
                       )}
-                      {!props.isAuthenticated? (
+                      {!isAuthenticated? (
                       
                       <li className="nav-item">
                         <Link className="nav-link px-3" to="/registrarse">REGISTRARSE</Link>
