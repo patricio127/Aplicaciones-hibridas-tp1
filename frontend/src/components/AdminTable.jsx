@@ -3,7 +3,7 @@ import EventRow from "./EventRow";
 import { useEvents } from "../context/EventsContext";
 
 function AdminTable(){
-    /* const [events, remove, add] = useEvents() */
+    const {events, remove, add} = useEvents();
     return(
         <section id="admin" className="container">
             <div>
@@ -36,7 +36,7 @@ function AdminTable(){
                     </tr>
                 </thead>
                 <tbody className="container-fluid">
-                    {/* {events.map((evento)=>(<EventRow evento={evento}/>))} */}
+                    {events.map((evento)=>(<EventRow evento={evento}/>))}
                 </tbody>
             </table>
         </section> 

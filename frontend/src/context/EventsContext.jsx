@@ -1,10 +1,10 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import eventsApi from "../api/events.api";
 
-const EventsContext = createContext();
+export const EventsContext = createContext();
 
 export function EventsProvider(props) {
-    const [events, setEvents] = useState();
+    const [events, setEvents] = useState([]);
 
 
     const remove = (event) => {
@@ -13,12 +13,14 @@ export function EventsProvider(props) {
     const add = (event) => {
         setEvents(events.filter(p => p.id !== event.id));
     }
-    useEffect(async function(){
-        console.log('context')
-        const eventos = await eventsApi.getAll()
-        setEvents(eventos)
+    useEffect(()=>{
+        async function eventGetApi(){
+            console.log('context')
+            const eventos = await eventsApi.getAll()
+            setEvents(eventos)
+        } 
+        eventGetApi();
     },[])
-
     return (
         <EventsContext.Provider value={{ events: events, remove, add }}>
             {props.children}
@@ -27,6 +29,7 @@ export function EventsProvider(props) {
 }
 
 export function useEvents() {
+    console.log("function useEvents")
     const context = useContext(EventsContext);
     if (context === undefined) {
         throw new Error("useEvents must be used within a EventsProvider");

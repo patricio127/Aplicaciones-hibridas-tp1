@@ -1,5 +1,5 @@
 import AdminTable from "../components/AdminTable"
-import { EventsProvider } from "../context/EventsContext"
+import { EventsProvider } from "../context/EventsContext.jsx"
 
 function Admin(){
     return(
