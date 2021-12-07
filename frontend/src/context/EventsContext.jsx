@@ -7,8 +7,9 @@ export function EventsProvider(props) {
     const [events, setEvents] = useState([]);
 
 
-    const remove = (event) => {
-        setEvents(events.filter(p => p.id !== event.id));
+    const remove = async(event) => {
+        const result = await eventsApi.deleteEvent(event._id)
+        setEvents(events.filter(p => p._id !== event._id));
     }
     const add = async (event) => {
         const createdEvent = await eventsApi.create(event)

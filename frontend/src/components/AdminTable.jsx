@@ -1,10 +1,9 @@
-import {useState} from "react";
 import EventRow from "./EventRow";
 import { useEvents } from "../context/EventsContext";
 import { Link } from "react-router-dom";
 
 function AdminTable(){
-    const {events, remove, add} = useEvents();
+    const {events} = useEvents();
     return(
         <section id="admin" className="container">
             
@@ -13,7 +12,7 @@ function AdminTable(){
                 
                 <Link className="btn btn-primary" to="/admin/crear-evento">Agregar nuevo evento</Link>
             </div>
-            <div className="mb-2">
+{/*             <div className="mb-2">
                 <form action="" method="get">
                     <div className="d-flex">
                         <div className="mb-3">
@@ -24,7 +23,7 @@ function AdminTable(){
                     </div>
                     
                 </form>
-            </div>
+            </div> */}
             <table className="table table-dark table-striped">
                 <thead className="container-fluid">
                     <tr className="row">
@@ -38,7 +37,7 @@ function AdminTable(){
                     </tr>
                 </thead>
                 <tbody className="container-fluid">
-                    {events.map((evento)=>(<EventRow evento={evento}/>))}
+                    {events.map((evento)=>(<EventRow key={evento._id} evento={evento}/>))}
                 </tbody>
             </table>
         </section> 

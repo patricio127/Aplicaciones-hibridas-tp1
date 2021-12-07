@@ -10,21 +10,26 @@ import Login from './pages/Login';
 import Register from './pages/Register'
 import { SessionProvider } from './context/SessionContext';
 import AuthRoute from './components/AuthRoute';
+import EventDetails from './pages/EventDetails';
+import { EventsProvider } from './context/EventsContext';
 
 function App () {
   return (
     <div className="App">
       <SessionProvider>
         <Header/>
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/eventos" element={<AuthRoute><Events/></AuthRoute>}/>
-          <Route path="/admin/*" element={<AuthRoute><Admin/></AuthRoute>}/>
-          <Route path="/perfil" element={<AuthRoute><Profile/></AuthRoute>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/registrarse" element={<AuthRoute><Register/></AuthRoute>}/>
-          <Route path="*" element={<Navigate to="/"/>}/>
-        </Routes>
+        <EventsProvider>
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="/eventos" element={<AuthRoute><Events/></AuthRoute>}/>
+            <Route path="/detalle-evento/:id" element={<AuthRoute><EventDetails/></AuthRoute>}/>
+            <Route path="/admin/*" element={<AuthRoute><Admin/></AuthRoute>}/>
+            <Route path="/perfil" element={<AuthRoute><Profile/></AuthRoute>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/registrarse" element={<AuthRoute><Register/></AuthRoute>}/>
+            <Route path="*" element={<Navigate to="/"/>}/>
+          </Routes>
+        </EventsProvider>
         <Footer/>
       </SessionProvider>
     </div>

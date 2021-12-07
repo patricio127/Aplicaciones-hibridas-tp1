@@ -4,7 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "seeder": "node ./seeder.js"
   },
   "author": "",
   "license": "ISC",

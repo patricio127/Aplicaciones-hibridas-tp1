@@ -41,7 +41,7 @@ export async function create(entity){
                 descripcion: '',
                 fecha_inicio: '',
                 fecha_fin: '', 
-                imgen: '',
+                imagen: '',
                 ...entity, 
                 deleted: false,
             });
