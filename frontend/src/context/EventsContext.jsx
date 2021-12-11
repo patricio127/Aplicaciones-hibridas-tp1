@@ -8,12 +8,25 @@ export function EventsProvider(props) {
 
 
     const remove = async(event) => {
-        const result = await eventsApi.deleteEvent(event._id)
-        setEvents(events.filter(p => p._id !== event._id));
+        try{
+            const result = await eventsApi.deleteEvent(event._id)
+            setEvents(events.filter(p => p._id !== event._id));
+            return Promise.resolve()
+        } catch(e){
+            return Promise.reject(e)
+        }
     }
     const add = async (event) => {
-        const createdEvent = await eventsApi.create(event)
-        setEvents([...events, createdEvent])
+        try{
+            const createdEvent = await eventsApi.create(event)
+            setEvents([...events, createdEvent])
+            return Promise.resolve(createdEvent)
+        } catch(e){
+            return Promise.reject(e)
+        }
+        
+
+        
     }
     useEffect(()=>{
         async function eventGetApi(){

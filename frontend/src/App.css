@@ -103,3 +103,6 @@ footer div div {
       background-position: auto;
   }
 }
+.form-control:valid.is-invalid {
+  border-color: #dc3545;
+}

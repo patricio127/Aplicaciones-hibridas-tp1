@@ -34,6 +34,7 @@ function register(req, res){
     })
     .catch(function(err){
         if(err.error){
+            console.error(err)
             res.status(400).json({error: 400, msg: err.msg})
         } else {
             console.error(err)

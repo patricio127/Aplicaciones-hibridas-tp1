@@ -7,25 +7,37 @@ export function SessionProvider(props) {
     const [isAuthenticated, setAuthenticated] = useState(true);
     let navigate = useNavigate();
     const handleLogin = (email, password)=>{
-        fetch('http://localhost:9000/usuarios/login', {
-            method: "POST",
-            headers:{
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({email, password})
+        const loginPromise = new Promise((resolve, reject)=>{
+            fetch('http://localhost:9000/usuarios/login', {
+                method: "POST",
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({email, password})
+            })
+            .then(async function(response){
+                if(response.ok){
+                    const data = await response.json()
+                    localStorage.setItem('token', data.token)
+                    localStorage.setItem('user', JSON.stringify(data.usuario))
+                    setAuthenticated(true)
+                    navigate('/', {replace: true});
+                    resolve(true)
+                } else{
+                    const err = await response.json()
+                    if(err.error === 401) {
+                        reject("Usuario y/o contraseña incorrectos")
+                    } else{
+                        reject("Ocurrió un error, intente nuevamente")
+                    }
+                }
+            })
+            .catch(function(err){
+                console.error(err)
+                reject("Ocurrió un error, intente nuevamente")
+            })
         })
-        .then(function(response){
-            return response.json()
-        })
-        .then(function (data) {
-            localStorage.setItem('token', data.token)
-            localStorage.setItem('user', JSON.stringify(data.usuario))
-            setAuthenticated(true)
-            navigate('/', {replace: true})
-        })
-        .catch(function(err){
-            console.error(err)
-        })
+        return loginPromise
       }
       const handleLogout = ()=>{
         localStorage.clear();
