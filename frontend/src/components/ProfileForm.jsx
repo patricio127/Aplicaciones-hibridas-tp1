@@ -12,8 +12,8 @@ function ProfileForm(props){
         setToken(localStorage.getItem('token'))
         if(localStorageUser){
             const usuario = JSON.parse(localStorageUser)
-            setEmail(usuario.email)
-            setName(usuario.name)
+            setEmail(usuario.email || '')
+            setName(usuario.name || '')
         }
       }, [])
 

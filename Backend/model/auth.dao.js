@@ -12,7 +12,8 @@ async function login(email, password){
                 return {
                     id: usuario._id,
                     name: usuario.name,
-                    email: usuario.email
+                    email: usuario.email, 
+                    isAdmin: usuario.isAdmin || false
                 }
             } else {
                 throw {error: 1000, msg: "La contraseña es incorrecta."}
@@ -32,7 +33,8 @@ async function register(usuario){
             await db.collection('usuarios').insertOne({
                 name: usuario.name,
                 email: usuario.email,
-                password: password
+                password: password, 
+                isAdmin: false,
             })
         } else {
             throw {error: 400, msg: "El usuario ya existe."}

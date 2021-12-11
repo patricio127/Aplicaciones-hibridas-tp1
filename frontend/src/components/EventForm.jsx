@@ -6,13 +6,12 @@ function EventForm(props){
     const [descripcion, setDescripcion] = useState('')
     const [fecha_inicio, setFecha_inicio] = useState('')
     const [fecha_fin, setFecha_fin] = useState('')
-    const [imagen, setImagen] = useState('')
     const [error, setError] = useState('')
     let navigate = useNavigate();
 
     const {add} = useEvents();
     const guardarEvento = ()=>{
-        add({titulo, descripcion, fecha_inicio, fecha_fin, imagen}).then(
+        add({titulo, descripcion, fecha_inicio, fecha_fin}).then(
             ()=>{
                 navigate('/admin/eventos', {replace: true});
             },
@@ -24,6 +23,7 @@ function EventForm(props){
     return(
         <section id="new-event" className="container">
             <h2 className="my-5">Agregar un Nuevo Evento</h2>
+            {error? (<div className="alert alert-danger container"> {error}  </div>):""}
             <form  onSubmit={(e)=>{e.preventDefault(); guardarEvento()}}>
                 <div className="mb-3">
                     <label htmlFor="titulo" className="form-label">Título</label>
@@ -41,10 +41,6 @@ function EventForm(props){
                         <input type="text" id="fecha_fin" required name="fecha_fin" className="form-control" 
                         placeholder="AAAA-MM-DD" aria-label="fecha_fin" value={fecha_fin}  onChange={(e)=>setFecha_fin(e.target.value)}/>
                     </div>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="imagen" className="form-label">Imagen</label>
-                    <input type="file" id="imagen" name="imagen" className="form-control" />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="descripcion" className="form-label">Descripción</label>

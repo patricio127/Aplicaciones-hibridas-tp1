@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import { useSession } from '../context/SessionContext';
 
 function Header(props){
-    const {isAuthenticated, handleLogout} = useSession()
+    const {isAuthenticated, isAdmin, handleLogout} = useSession()
     return(
         <header>
         <h1 className="visually-hidden">Genshin Impact</h1>
@@ -22,7 +22,7 @@ function Header(props){
                       <li className="nav-item">
                         <Link className="nav-link px-3" to="/eventos">EVENTOS</Link>
                       </li>
-                      {isAuthenticated? (
+                      {isAuthenticated && isAdmin ? (
                       <li className="nav-item">
                         <Link className="nav-link px-3" to="/admin/eventos">ADMINISTRAR</Link>
                       </li>
@@ -34,7 +34,7 @@ function Header(props){
                       ) : ''}
                       {isAuthenticated? (
                       <li className="nav-item">
-                        <button className="btn nav-link px-3" type="submit" onClick={()=>handleLogout()}>CERRAR SESION</button>
+                        <a className="btn nav-link px-3" type="submit" onClick={(e)=> {e.preventDefault(); handleLogout()}}>CERRAR SESION</a>
                       </li>
                       ) : (
                       <li className="nav-item">

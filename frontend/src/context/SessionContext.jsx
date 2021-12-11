@@ -5,6 +5,7 @@ export const SessionContext = createContext();
 
 export function SessionProvider(props) {
     const [isAuthenticated, setAuthenticated] = useState(true);
+    const [isAdmin, setIsAdmin] = useState(false);
     let navigate = useNavigate();
     const handleLogin = (email, password)=>{
         const loginPromise = new Promise((resolve, reject)=>{
@@ -21,6 +22,7 @@ export function SessionProvider(props) {
                     localStorage.setItem('token', data.token)
                     localStorage.setItem('user', JSON.stringify(data.usuario))
                     setAuthenticated(true)
+                    setIsAdmin(data.usuario.isAdmin || false)
                     navigate('/', {replace: true});
                     resolve(true)
                 } else{
@@ -42,17 +44,24 @@ export function SessionProvider(props) {
       const handleLogout = ()=>{
         localStorage.clear();
         setAuthenticated(false)
+        setIsAdmin(false)
         navigate('/', {replace: true})
       }
     useEffect(()=>{
         if(localStorage.getItem('token')){
             setAuthenticated(true)
+            try {
+                setIsAdmin(JSON.parse(localStorage.getItem('user')).isAdmin)
+            } catch {
+                setIsAdmin(false)
+            }
           } else {
             setAuthenticated(false)
+            setIsAdmin(false)
           }
     }, [])
     return (
-        <SessionContext.Provider value={{ isAuthenticated, handleLogin, handleLogout }}>
+        <SessionContext.Provider value={{ isAuthenticated, isAdmin, handleLogin, handleLogout }}>
             {props.children}
         </SessionContext.Provider>
     );

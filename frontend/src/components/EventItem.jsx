@@ -3,7 +3,6 @@ function EventItem(props){
     return(
         <Link to={`/detalle-evento/${props.evento._id}`}>
             <div className="card mb-3">
-                <img src={props.evento.imagen} className="card-img-top" alt="Imagen del evento"/>
                 <div className="card-body">
                     <h3 className="card-title">{props.evento.titulo}</h3>
                     <div className="d-flex">

@@ -14,7 +14,6 @@ function EventDetails(){
         <section className="container">
             <h2 className="my-5">Detalle del evento</h2>
             <div className="card mb-3">
-                <img src={evento.imagen} className="card-img-top" alt="Imagen del evento"/>
                 <div className="card-body">
                     <h3 className="card-title">{evento.titulo}</h3>
                     <div className="card-text">{textoFormato}</div>

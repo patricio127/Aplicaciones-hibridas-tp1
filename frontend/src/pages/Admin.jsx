@@ -1,7 +1,6 @@
 import AdminTable from "../components/AdminTable"
 import AuthRoute from "../components/AuthRoute"
-import { EventsProvider } from "../context/EventsContext.jsx"
-import { Route, Routes, Navigate} from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 import EventForm from "../components/EventForm"
 
 function Admin(){

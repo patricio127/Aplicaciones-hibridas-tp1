@@ -23,7 +23,7 @@ function App () {
             <Route path="/" element={<Home />}/>
             <Route path="/eventos" element={<AuthRoute><Events/></AuthRoute>}/>
             <Route path="/detalle-evento/:id" element={<AuthRoute><EventDetails/></AuthRoute>}/>
-            <Route path="/admin/*" element={<AuthRoute><Admin/></AuthRoute>}/>
+            <Route path="/admin/*" element={<AuthRoute adminOnly={true}><Admin/></AuthRoute>}/>
             <Route path="/perfil" element={<AuthRoute><Profile/></AuthRoute>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/registrarse" element={<Register/>}/>
