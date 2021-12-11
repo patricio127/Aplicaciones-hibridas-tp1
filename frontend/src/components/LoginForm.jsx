@@ -17,12 +17,12 @@ function LoginForm(props){
             <form onSubmit={(e)=>onSubmit(e)}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email</label>
-                    <input type="email" name="email" className="form-control" id="email" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
+                    <input type="email" name="email" required className="form-control" id="email" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
                     
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" name="password" className="form-control" id="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+                    <input type="password" name="password" required className="form-control" id="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
                 </div>
                 <button className="btn btn-primary w-100">Ingresar</button>
             </form>

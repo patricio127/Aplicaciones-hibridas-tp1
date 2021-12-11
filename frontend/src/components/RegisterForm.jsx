@@ -33,7 +33,7 @@ function RegisterForm(props){
                     <input type="email" name="email" className="form-control" id="email" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
                     
                 </div>
-                <div class="mb-3">
+                <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" name="password" className="form-control" id="password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
                 </div>

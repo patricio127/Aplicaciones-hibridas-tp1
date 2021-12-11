@@ -17,7 +17,7 @@ function EventDetails(){
                 <img src={evento.imagen} className="card-img-top" alt="Imagen del evento"/>
                 <div className="card-body">
                     <h3 className="card-title">{evento.titulo}</h3>
-                    <p className="card-text">{textoFormato}</p>
+                    <div className="card-text">{textoFormato}</div>
                     <div className="d-flex">
                         <div className="d-flex mx-5">
                             <p className="card-text mx-1"><small className="text-muted">{evento.fecha_inicio} ~</small></p>

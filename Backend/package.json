@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "server": "nodemon app.js",
-    "seeder": "node ./seeder.js"
+    "init": "node ./init.js"
   },
   "author": "",
   "license": "ISC",

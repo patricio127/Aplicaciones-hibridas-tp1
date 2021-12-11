@@ -1,5 +1,7 @@
 import RegisterForm from "../components/RegisterForm"
 import { useNavigate} from 'react-router-dom'
+import { useSession } from "../context/SessionContext"
+import { Navigate} from 'react-router-dom'
 
 function Register(props){
     let navigate = useNavigate();
@@ -7,9 +9,8 @@ function Register(props){
         localStorage.setItem('token', token)
         navigate('/login', {replace: true})
     }
-    return(
-        <RegisterForm setRegister={(token)=>handleRegister(token)}/>
-    )
+    const {isAuthenticated} = useSession()
+    return(isAuthenticated? <Navigate to="/perfil"/> : <RegisterForm setRegister={(token)=>handleRegister(token)}/>)
 }
 
 

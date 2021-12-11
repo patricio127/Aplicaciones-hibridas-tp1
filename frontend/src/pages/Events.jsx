@@ -4,10 +4,10 @@ import { useEvents } from "../context/EventsContext"
 function Events(){
     const {events} = useEvents()
     return(
-        <section class="container" id="events">
-            <h2 class="my-5">Eventos</h2>
+        <section className="container" id="events">
+            <h2 className="my-5">Eventos</h2>
             {events.map((evento)=>(
-                <EventItem evento={evento}></EventItem>
+                <EventItem key={evento._id} evento={evento}></EventItem>
             ))}
         </section>
     )

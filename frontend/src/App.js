@@ -26,7 +26,7 @@ function App () {
             <Route path="/admin/*" element={<AuthRoute><Admin/></AuthRoute>}/>
             <Route path="/perfil" element={<AuthRoute><Profile/></AuthRoute>}/>
             <Route path="/login" element={<Login/>}/>
-            <Route path="/registrarse" element={<AuthRoute><Register/></AuthRoute>}/>
+            <Route path="/registrarse" element={<Register/>}/>
             <Route path="*" element={<Navigate to="/"/>}/>
           </Routes>
         </EventsProvider>
