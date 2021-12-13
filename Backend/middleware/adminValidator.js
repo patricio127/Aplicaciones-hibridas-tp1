@@ -1,6 +1,7 @@
 export function adminValidator(req, res, next){
     try{
         const isAdmin = req.usuario.isAdmin
+        console.log(req.usuario)
         if (isAdmin) {
             next()
         } else {

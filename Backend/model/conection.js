@@ -1,4 +1,4 @@
-import { MongoClient, ObjectId } from 'mongodb'
+import { MongoClient } from 'mongodb'
 import config from '../config.js'
 const client = new MongoClient(`mongodb://${config.db.host}:${config.db.port}`)
 

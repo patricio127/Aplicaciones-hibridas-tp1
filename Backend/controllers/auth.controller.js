@@ -9,7 +9,8 @@ function login(req, res){
         const token = generate({
             id: data.id,
             name: data.name,
-            email: data.email
+            email: data.email,
+            isAdmin: data.isAdmin || false
         })
         res.header('auth-token', token).json({usuario: data, token: token})
     })

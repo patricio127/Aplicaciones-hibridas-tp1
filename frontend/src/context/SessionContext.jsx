@@ -1,15 +1,18 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate} from 'react-router-dom'
+import config from '../config/config';
 
 export const SessionContext = createContext();
 
+const isAdminLs = localStorage.getItem('user')? JSON.parse(localStorage.getItem('user')).isAdmin : false
+
 export function SessionProvider(props) {
     const [isAuthenticated, setAuthenticated] = useState(true);
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(isAdminLs);
     let navigate = useNavigate();
     const handleLogin = (email, password)=>{
         const loginPromise = new Promise((resolve, reject)=>{
-            fetch('http://localhost:9000/usuarios/login', {
+            fetch(`${config.api.url}/usuarios/login`, {
                 method: "POST",
                 headers:{
                     'content-type': 'application/json'
@@ -47,12 +50,15 @@ export function SessionProvider(props) {
         setIsAdmin(false)
         navigate('/', {replace: true})
       }
+    //Uso useEffect(___,[]) que es como hacer component didmount
     useEffect(()=>{
+        console.log("useEffect")
         if(localStorage.getItem('token')){
             setAuthenticated(true)
             try {
                 setIsAdmin(JSON.parse(localStorage.getItem('user')).isAdmin)
             } catch {
+                console.log(`error localstorage set is admin`)
                 setIsAdmin(false)
             }
           } else {

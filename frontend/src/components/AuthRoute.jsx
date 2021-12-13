@@ -10,6 +10,7 @@ export default function AuthRoute(props){
         y si es admin, deja acceder, sino, redirige a home
     */
     const {isAuthenticated, isAdmin} = useSession()
+    console.log(`auth route ${isAdmin}`)
     let canAccess = false;
     if (props.adminOnly) { //si esta prop es true, solo los admin pueden acceder
         canAccess = isAdmin

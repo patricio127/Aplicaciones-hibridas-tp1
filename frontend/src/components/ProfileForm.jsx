@@ -1,4 +1,5 @@
 import { useEffect, useState} from 'react';
+import config from '../config/config';
 
 function ProfileForm(props){
     const [email, setEmail] = useState("")
@@ -19,7 +20,7 @@ function ProfileForm(props){
 
     function onSubmit(e){
         e.preventDefault()
-        fetch('http://localhost:9000/usuarios', {
+        fetch(`${config.api.url}/usuarios`, {
             method: "PATCH",
             headers:{
                 'content-type': 'application/json',

@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {Link} from 'react-router-dom'
+import config from '../config/config';
 
 function RegisterForm(props){
     const [email, setEmail] = useState("")
@@ -10,7 +11,7 @@ function RegisterForm(props){
 
     function onSubmit(e){
         e.preventDefault()
-        fetch('http://localhost:9000/usuarios/register', {
+        fetch(`${config.api.url}/usuarios/register`, {
             method: "POST",
             headers:{
                 'content-type': 'application/json'
