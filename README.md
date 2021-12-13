@@ -1,4 +1,4 @@
-# Aplicaciones-hibridas-tp1
+# Aplicaciones-hibridas-tp2
 ## Inicialización
 Para inicializar la base de datos ejecutar: 
 ``` 
